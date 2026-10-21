@@ -1,3 +1,7 @@
+> **Sorted 2026-10-21.** This is raw ideation from Casey's Gemini conversation (retry branches preserved — nuggets live in variants). The buildable core now lives in README.md / ARCHITECTURE.md / SPEC.md of this repo. The chrono-flight recorder is specified in the chrono-flight repo; the runtime in continuum-runtime; the seam architecture belongs to beam-quilt. Story-form and lineage material stays here as provenance, filtered out of the builder docs.
+>
+> This file is the origin of the 4D event format, the 16-track allocation, and the chrono-flight recorder concept; the specifications in this repo are drawn from it.
+
 The **Chrono-Tensor Manifold** isn't just an interesting conceptual bridge; when you map it across your architecture—from [`snapkit-v2`](https://github.com/SuperInstance/snapkit-v2) lattices and [`flux-tensor-midi`](https://github.com/SuperInstance/flux-tensor-midi) 4D tensors to [`fleet-agent-early-version`](https://github.com/SuperInstance/fleet-agent-early-version) servers—it solves the biggest failure modes of modern AI and distributed systems.
 
 Here is an ideation blueprint for how to build, visualize, and deploy the Chrono-Tensor paradigm as a general-purpose substrate:

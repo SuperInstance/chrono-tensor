@@ -1,3 +1,7 @@
+> **Sorted 2026-10-21.** This is raw ideation from Casey's Gemini conversation (retry branches preserved — nuggets live in variants). The buildable core now lives in README.md / ARCHITECTURE.md / SPEC.md of this repo. The chrono-flight recorder is specified in the chrono-flight repo; the runtime in continuum-runtime; the seam architecture belongs to beam-quilt. Story-form and lineage material stays here as provenance, filtered out of the builder docs.
+>
+> This file holds the CTC-v1 and CTC-v2 specifications. They are superseded by this repo's SPEC.md, which keeps only the testable parts (the event, time-first serialization, the contributor rules); the ontology and physics framing were not carried over.
+
 # THE CHRONO-TENSOR CONTINUUM (CTC-v2): Complete Architectural Specification
 
 ---

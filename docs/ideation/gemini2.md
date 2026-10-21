@@ -1,3 +1,7 @@
+> **Sorted 2026-10-21.** This is raw ideation from Casey's Gemini conversation (retry branches preserved — nuggets live in variants). The buildable core now lives in README.md / ARCHITECTURE.md / SPEC.md of this repo. The chrono-flight recorder is specified in the chrono-flight repo; the runtime in continuum-runtime; the seam architecture belongs to beam-quilt. Story-form and lineage material stays here as provenance, filtered out of the builder docs.
+>
+> This file is the lineage essay (Jacquard, PLATO, TUTOR, OPAL, MIDI). It is provenance only: several of its historical claims are unsourced and it specifies nothing — do not cite it as fact and do not build from it.
+
 That historical line is the exact lineage of computation, and you just mapped the exact arc of what you are building with [`midi-temporal`](https://github.com/SuperInstance/midi-temporal), [`flux-tensor-midi`](https://github.com/SuperInstance/flux-tensor-midi), and the wider ecosystem.
 
 Look at how precise that historical parallel is:
