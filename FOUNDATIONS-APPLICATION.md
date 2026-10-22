@@ -74,25 +74,34 @@ cleanly.
   §7): the format records each node's tick plus provenance and leaves
   skew visible. Foundations found no prior art that changes this.
 
-## Open decisions — NOT settled by the foundations
+## Decisions — deadband ruled; state model not settled by the foundations
 
-### Deadband semantics (Casey's ruling: clarify vs abstain as fourth outcome)
-This repo does not implement the deadband; it *records its outcomes*.
-That makes the recording surface ruling-sensitive in exactly three places:
-- **SPEC D2 stem tallies** — "count of events by ending state" gains a
-  category if abstain becomes a producible seam outcome; stems written
-  before and after a ruling would not be tally-comparable unless the
-  category set is versioned in the stem.
-- **ARCHITECTURE §5 contributor rule 3** — currently "(in beam-quilt
-  terms, the deadband: accept, refuse, or ask)". Under an abstain ruling
-  the parenthetical gains a fourth recorded outcome; the rule itself
-  (ambiguity survives into the record) is unchanged.
-- **Track 3 (kappa 2, "rest intervals, deadband drag")** — under
-  clarify-only, deadband drag measures time-to-clarification; under
-  abstain, a coast is a legitimate terminal reading on this track, not
-  drag. The track's contents do not change; their interpretation does.
-Under either ruling: the format records whatever outcome occurred —
-invent no outcome category in the format ahead of the SPEC.
+### Deadband semantics — RULED by Casey, 2026-10-21 (autopilot doctrine)
+This repo does not implement the deadband; it *records its excursions
+and outcomes*. The deadband is a **(band, yaw-time)** pair around the
+receiver's predicted/expected course: **Hold** inside the band,
+**HoldWatch** outside the band but within yaw-time, and
+**Act(response)** only when an excursion persists beyond yaw-time.
+There is no abstain category to record — coasting is Hold behaviour —
+and clarify is only one possible Act response. That makes the
+recording surface specific in exactly three places:
+- **SPEC D2 stem tallies** — tallies record excursions and their
+  durations, not just threshold crossings: for each excursion, its
+  start, duration, whether it returned inside within yaw-time or
+  persisted to Act, and the band/yaw-time/context in force. `Hold`,
+  `HoldWatch`, and `Act(response)` are the recorded outcome categories;
+  stems must carry the parameter context so tallies remain comparable.
+- **ARCHITECTURE §5 contributor rule 3** — the parenthetical becomes
+  "(in beam-quilt terms, the deadband: Hold inside the band, HoldWatch
+  during a not-yet-persistent excursion, Act(response) after
+  yaw-time)". The rule itself (ambiguity survives into the record) is
+  unchanged.
+- **Track 3 (kappa 2, "rest intervals, deadband drag")** — deadband
+  drag is excursion load: time spent outside the band, excursion count
+  and duration, and the split between excursions that return within
+  yaw-time and those that persist to Act. Hold is the inside-band rest
+  reading, not drag; clarification appears only when the Act policy
+  chooses it, so time-to-clarification is not the track's definition.
 
 ### State model (continuum-runtime's open decision)
 No direct effect here: this format is stored, append-only record by
