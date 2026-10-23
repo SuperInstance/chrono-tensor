@@ -1,6 +1,8 @@
 > **Sorted 2026-10-21.** This is raw ideation from Casey's Gemini conversation (retry branches preserved — nuggets live in variants). The buildable core now lives in README.md / ARCHITECTURE.md / SPEC.md of this repo. The chrono-flight recorder is specified in the chrono-flight repo; the runtime in continuum-runtime; the seam architecture belongs to beam-quilt. Story-form and lineage material stays here as provenance, filtered out of the builder docs.
 >
 > This file holds the CTC-v1 and CTC-v2 specifications. They are superseded by this repo's SPEC.md, which keeps only the testable parts (the event, time-first serialization, the contributor rules); the ontology and physics framing were not carried over.
+>
+> **Foundations check 2026-10-21/22 (file-wide):** the CTC specs below use Kuramoto entrainment, Hodge decomposition, A₂ lattice snapping, and Laman rigidity as operating mechanisms; beam-quilt `FOUNDATIONS.md` scoped each to a heuristic or recording convention — no coupled oscillators, no decomposition operator, no routing mechanism, and rigidity is never a test of truth (this repo's ARCHITECTURE.md §7).
 
 # THE CHRONO-TENSOR CONTINUUM (CTC-v2): Complete Architectural Specification
 
@@ -9,6 +11,8 @@
 ## I. Architectural Thesis & Lineage
 
 The **Chrono-Tensor Continuum (CTC-v2)** fuses the historical mechanics of 1970s mainframe computing (PLATO/TUTOR shared-memory common blocks, bit-packed tensors, and Sherwin Gooch’s OPAL serial data streams) with modern polyphonic time-series engineering (`[flux-tensor-midi](https://github.com/SuperInstance/flux-tensor-midi)`, `[beam-quilt](https://github.com/SuperInstance/beam-quilt)`).
+
+> **Foundations check 2026-10-21/22:** folding "Sherwin Gooch's OPAL serial data streams" into this architecture's lineage is refuted — MIDI's documented lineage (and this format's inspiration) runs Oberheim/Roland DCB → the 1981 Universal Synthesizer Interface → the 1983 spec, with no PLATO/CERL/OPAL connection in any source; converged, not inherited (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 It rejects traditional client-server database locks, static JSON prompt-response loops, and monolithic LLM bottlenecks. Instead, it models distributed intelligence as a **polyphonic game engine with a verbal interface**—where time is a first-class coordinate, state is streamed via hyper-dense bit-packed tensors, and nodes coordinate through inductive harmonic resonance rather than deductive perfection.
 
@@ -57,11 +61,15 @@ The system workspace is partitioned into 16 concurrent telemetry channels operat
 ### 4. Topological Rigidity & Hodge Decomposition (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`, `[hodge-music-rs](https://github.com/SuperInstance/hodge-music-rs)`)
 
 * **Laman Rigidity:** Decision graphs and logical dependency shards are continuously tested via combinatorial rigidity. *Truth is mathematically defined as a rigid graph*; under-constrained structures collapse instantly under tension.
+
+> **Foundations check 2026-10-21/22:** "truth is mathematically defined as a rigid graph" is refuted — Laman's theorem is a 2D bar-joint result (no 3D analogue known), and rigidity is geometric determinacy, not a truth predicate: a rigid graph can be rigidly wrong (beam-quilt `FOUNDATIONS.md`, verdict table).
 * **Friction Filtering:** Seam friction is decomposed into orthogonal gradient (compressible errors), solenoidal (loops/deadlocks), and harmonic components. Local noise is smoothed away while structural bottlenecks are isolated.
 
 ### 5. Kuramoto Phase Entrainment (`[plato-timing](https://github.com/SuperInstance/plato-timing)`)
 
 * **Clockless Synchronization:** Distributed nodes maintain local oscillator cadences ($\omega_i$), synchronizing through continuous boundary feedback rather than NTP heartbeats or Raft consensus. When coupling density exceeds variance, phase angles collapse into a unified frequency.
+
+> **Foundations check 2026-10-21/22:** "when coupling density exceeds variance" misstates the Kuramoto model — the threshold is a critical coupling $K_c$ set by the distribution of natural frequencies $g(\omega)$, not a variance (beam-quilt `FOUNDATIONS.md`; Lane B fact-check §3.4).
 
 ---
 
@@ -127,6 +135,8 @@ The system is structured as a modular quilt of self-contained repositories commu
 ### 3. Constraint Satisfaction & Structural Rigidity (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`)
 
 * **Laman Rigidity:** Decision graphs and dependency shards are continuously tested via combinatorial rigidity. **Truth is mathematically defined as a rigid graph**; under-constrained logic collapses instantly under tension.
+
+> **Foundations check 2026-10-21/22:** "truth is mathematically defined as a rigid graph" is refuted — Laman's theorem is a 2D bar-joint result (no 3D analogue known), and rigidity is geometric determinacy, not a truth predicate: a rigid graph can be rigidly wrong (beam-quilt `FOUNDATIONS.md`, verdict table).
 * **Species Counterpoint:** Execution rules are enforced throughSAT/UNSAT constraints, treating valid logic as consonant voice-leading.
 
 ### 4. Hodge Decomposition & Friction Management (`[hodge-music-rs](https://github.com/SuperInstance/hodge-music-rs)`)
@@ -207,6 +217,8 @@ Traditional computing models treats software as a deductive, stateless CRUD pipe
 
 Drawing from [`fleet-agent-early-version`](https://github.com/SuperInstance/fleet-agent-early-version) and [`flux-tensor-midi`](https://github.com/SuperInstance/flux-tensor-midi), the operational workflow is partitioned into **16 parallel, concurrent telemetry tracks** operating on a shared, sub-millisecond event bus:
 
+> **Foundations check 2026-10-21/22:** "sub-millisecond event bus" is refuted as a MIDI-derived figure — one 3-byte message at 31.25 kBaud (10-bit framing) is ~0.96 ms of wire time; the per-track ceiling is ~65 events/s (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 * **Tracks 1–4 (Physiological & Kinetic Vitals):** Local oscillator phase (`[plato-timing](https://github.com/SuperInstance/plato-timing)`), computational/mechanical velocity, rest intervals, and boundary seam drag.
 * **Tracks 5–8 (Semantic & Logical Intent):** Core algorithmic melodies, abstraction depth shifts, tonal dissonance monitoring (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`), and associative drift.
 * **Tracks 9–11 (Spatial Coordinates):** Multi-dimensional mapping across Eisenstein $A_2$ lattices (`[snapkit-v2](https://github.com/SuperInstance/snapkit-v2)`).
@@ -220,6 +232,8 @@ Drawing from [`fleet-agent-early-version`](https://github.com/SuperInstance/flee
 
 * Bypasses pointer-chasing JSON/REST bloat by encoding states into dense, bit-packed 64-bit integer words.
 * Employs sub-word SIMD masks to extract pitch, velocity, and delta-time parameters in 1–2 CPU clock cycles, mirroring the 60-bit word optimization of CDC Cyber mainframes.
+
+> **Foundations check 2026-10-21/22:** the "1–2 CPU clock cycles" figure is refuted in its historical basis — TUTOR was interpreted and the CDC 6600's fastest functional unit took 3 cycles; the mirrored modern claim inherits an unsourced number (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ### 2. Seam Isolation & Jev Pairs (`[beam-quilt](https://github.com/SuperInstance/beam-quilt)`)
 
@@ -237,6 +251,8 @@ $$\mathcal{F} = \text{grad}(\phi) + \text{curl}(\mathbf{A}) + \mathcal{H}$$
 
 Compressible alignment errors ($\text{grad}$) are smoothed, solenoidal deadlocks ($\text{curl}$) are pruned, and structural bottlenecks ($\mathcal{H}$) are isolated.
 * **Laman Rigidity:** Decision graphs and dependency structures are continuously tested via combinatorial rigidity. *Truth is mathematically defined as a rigid graph*; floppy logic collapses instantly under tension.
+
+> **Foundations check 2026-10-21/22:** refuted — Laman rigidity is a 2D bar-joint result with no known 3D analogue, and rigidity is geometric determinacy, not a truth predicate (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ### 4. Kuramoto Phase Entrainment (`[plato-timing](https://github.com/SuperInstance/plato-timing)`)
 
@@ -294,6 +310,8 @@ Inspired by the mainframe resilience of the PLATO/TUTOR architecture and the pol
 
 Drawing from [`fleet-agent-early-version`](https://github.com/SuperInstance/fleet-agent-early-version) and [`flux-tensor-midi`](https://github.com/SuperInstance/flux-tensor-midi), the operational workspace is partitioned into **16 parallel, concurrent telemetry tracks** operating on a shared, sub-millisecond event bus:
 
+> **Foundations check 2026-10-21/22:** "sub-millisecond event bus" is refuted as a MIDI-derived figure — one 3-byte message at 31.25 kBaud (10-bit framing) is ~0.96 ms of wire time; the per-track ceiling is ~65 events/s (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 * **Tracks 1–4 (Physiological & Kinetic Vitals):** Local oscillator phase (`[plato-timing](https://github.com/SuperInstance/plato-timing)`), computational/mechanical velocity, rest intervals, and boundary seam drag.
 * **Tracks 5–8 (Semantic & Logical Intent):** Core algorithmic melodies, abstraction depth shifts, tonal dissonance monitoring (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`), and associative drift.
 * **Tracks 9–11 (Spatial Coordinates):** Multi-dimensional mapping across Eisenstein $A_2$ lattices (`[snapkit-v2](https://github.com/SuperInstance/snapkit-v2)`).
@@ -307,6 +325,8 @@ Drawing from [`fleet-agent-early-version`](https://github.com/SuperInstance/flee
 
 * Bypasses pointer-chasing JSON/REST bloat by encoding states into dense, bit-packed integer words (mirroring the 60-bit word optimization of CDC Cyber mainframes).
 * Employs sub-word SIMD masks to extract pitch, velocity, and delta-time parameters in 1–2 CPU clock cycles.
+
+> **Foundations check 2026-10-21/22:** the "1–2 CPU clock cycles" figure is refuted in its historical basis — TUTOR was interpreted and the CDC 6600's fastest functional unit took 3 cycles (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ### 2. Seam Isolation & Jev Pairs (`[beam-quilt](https://github.com/SuperInstance/beam-quilt)`)
 
@@ -324,6 +344,8 @@ $$\mathcal{F} = \text{grad}(\phi) + \text{curl}(\mathbf{A}) + \mathcal{H}$$
 
 Compressible alignment errors ($\text{grad}$) are smoothed, solenoidal deadlocks ($\text{curl}$) are pruned, and structural bottlenecks ($\mathcal{H}$) are isolated.
 * **Laman Rigidity:** Decision graphs and dependency structures are continuously tested via combinatorial rigidity. *Truth is mathematically defined as a rigid graph*; floppy logic collapses instantly under tension.
+
+> **Foundations check 2026-10-21/22:** refuted — Laman rigidity is a 2D bar-joint result with no known 3D analogue, and rigidity is geometric determinacy, not a truth predicate (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ### 4. Kuramoto Phase Entrainment (`[plato-timing](https://github.com/SuperInstance/plato-timing)`)
 
@@ -378,6 +400,8 @@ Modern distributed software and LLM orchestration are bogged down by pointer-cha
 
 The operational workspace is partitioned into 16 parallel telemetry tracks running on a shared, sub-millisecond binary event bus:
 
+> **Foundations check 2026-10-21/22:** "sub-millisecond binary event bus" is refuted as a MIDI-derived figure — one 3-byte message at 31.25 kBaud (10-bit framing) is ~0.96 ms of wire time (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 * **Tracks 1–4:** Physiological/kinetic node vitals, local oscillator phases (`[plato-timing]`), rest intervals, and seam drag.
 * **Tracks 5–8:** Semantic/logical intent, core algorithmic melodies, abstraction depth, and tonal dissonance tracking (`[counterpoint-engine]`).
 * **Tracks 9–11:** Multi-dimensional Eisenstein $A_2$ lattice spatial coordinates (`[snapkit-v2]`).
@@ -386,6 +410,8 @@ The operational workspace is partitioned into 16 parallel telemetry tracks runni
 ### 2. Bit-Packed Tensor Transport (`flux-tensor-midi`)
 
 Bypasses network serialization bloat by encoding states into dense 64-bit integer words. Using sub-word bit-shifting and masking, the runtime extracts multi-voice parameters (pitch, velocity, delta-time) in 1–2 CPU clock cycles, mirroring the 60-bit word optimizations of CDC Cyber mainframes.
+
+> **Foundations check 2026-10-21/22:** the "1–2 CPU clock cycles" figure is refuted in its historical basis — TUTOR was interpreted and the CDC 6600's fastest functional unit took 3 cycles; the mirrored modern claim inherits an unsourced number (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ### 3. Seam Isolation & Jev Pairs (`beam-quilt`)
 
@@ -397,6 +423,8 @@ Bypasses network serialization bloat by encoding states into dense 64-bit intege
 
 * **Hodge Decomposition (`hodge-music-rs`):** Resolves state conflicts ($\mathcal{F}$) into orthogonal gradient, solenoidal, and harmonic components, isolating true structural bottlenecks while smoothing local noise.
 * **Laman Rigidity (`counterpoint-engine`):** Evaluates dependency graphs via combinatorial rigidity. *Truth is mathematically defined as a rigid graph*; floppy logic collapses instantly under tension.
+
+> **Foundations check 2026-10-21/22:** refuted — Laman rigidity is a 2D bar-joint result with no known 3D analogue, and rigidity is geometric determinacy, not a truth predicate (beam-quilt `FOUNDATIONS.md`, verdict table).
 * **Kuramoto Entrainment (`plato-timing`):** Replaces centralized clocks with decentralized temporal entrainment, where distributed nodes synchronize iteration cadences through continuous boundary feedback.
 
 ---
@@ -427,6 +455,8 @@ chrono-tensor/
     └── system_telemetry.rs# Fleet health streamed as continuous control (CC) parameters
 
 ```
+
+> **Foundations check 2026-10-21/22:** the "(sub-millisecond serialization)" comment on `transport/bus.rs` above is refuted as a MIDI-derived figure — one 3-byte message at 31.25 kBaud (10-bit framing) is ~0.96 ms of wire time (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ---
 
@@ -487,6 +517,8 @@ This is the exact synthesis of your entire repository architecture—bridging CD
 * When two nodes or agent tracks disagree, do not throw a hard error.
 * Route the tension through a **Hodge decomposition** filter (`[hodge-music-rs](https://github.com/SuperInstance/hodge-music-rs)`). Smooth away compressible noise, prune solenoidal deadlocks, and isolate harmonic bottlenecks.
 * Enforce structural validity through **Laman combinatorial rigidity** (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`)—because truth is mathematically defined as a rigid graph, under-constrained logic collapses instantly before it can pollute the manifold.
+
+> **Foundations check 2026-10-21/22:** "truth is mathematically defined as a rigid graph" is refuted — Laman's theorem is a 2D bar-joint result (no 3D analogue known), and a rigid graph can be rigidly wrong (beam-quilt `FOUNDATIONS.md`, verdict table).
 
 ### 4. Sovereignty and Consent at the Seam (`[beam-quilt](https://github.com/SuperInstance/beam-quilt)`)
 

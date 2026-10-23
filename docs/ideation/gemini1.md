@@ -1,6 +1,8 @@
 > **Sorted 2026-10-21.** This is raw ideation from Casey's Gemini conversation (retry branches preserved — nuggets live in variants). The buildable core now lives in README.md / ARCHITECTURE.md / SPEC.md of this repo. The chrono-flight recorder is specified in the chrono-flight repo; the runtime in continuum-runtime; the seam architecture belongs to beam-quilt. Story-form and lineage material stays here as provenance, filtered out of the builder docs.
 >
 > This file is the origin of the 4D event format, the 16-track allocation, and the chrono-flight recorder concept; the specifications in this repo are drawn from it.
+>
+> **Foundations check 2026-10-21/22 (file-wide):** the physics vocabulary used throughout — Kuramoto phase-locking, Hodge decomposition, Eisenstein A₂ lattice routing/optimality — is MISLEADING-SCOPE per beam-quilt `FOUNDATIONS.md`: as used here each names a heuristic (cadence adjustment, three-bucket friction triage, a recording grid), not an operating mechanism; no oscillators are coupled and no decomposition operator is evaluated (scoped in this repo's ARCHITECTURE.md §7, "Parked").
 
 The **Chrono-Tensor Manifold** isn't just an interesting conceptual bridge; when you map it across your architecture—from [`snapkit-v2`](https://github.com/SuperInstance/snapkit-v2) lattices and [`flux-tensor-midi`](https://github.com/SuperInstance/flux-tensor-midi) 4D tensors to [`fleet-agent-early-version`](https://github.com/SuperInstance/fleet-agent-early-version) servers—it solves the biggest failure modes of modern AI and distributed systems.
 
@@ -208,6 +210,8 @@ chrono-tensor/
 
 ```
 
+> **Foundations check 2026-10-21/22:** the "(sub-millisecond serialization)" claim on `transport/encoder.py` above is refuted as a MIDI-derived property — at 31.25 kBaud with 10-bit framing (3,125 bytes/s), one 3-byte MIDI message is ~0.96 ms of wire time; the per-track ceiling is ~65 events/s (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 ---
 
 ### Why It Wins
@@ -261,6 +265,9 @@ Instead of traditional logging (writing walls of JSON text to a database that yo
 ### Why This Is the Killer-App
 
 * **It Solves the Observability Nightmare:** Traditional distributed systems logging is a write-heavy, compute-guzzling mess. Chrono-Tensor leverages a protocol designed for a 31.25 kBaud serial line—meaning it has **near-zero overhead, lightning-fast serialization, and native sub-millisecond temporal alignment**.
+
+> **Foundations check 2026-10-21/22:** "native sub-millisecond temporal alignment" is refuted — one 3-byte MIDI message at 31.25 kBaud (10-bit framing) takes ~0.96 ms of wire time, and the best synchronisation MIDI offers is 8.33 ms (MTC quarter-frame at 30 fps). "Near-zero overhead" is misleading-scope: it holds only for the 1-byte status header and was bought by dropping checksums and sequence numbers (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 * **It Turns Failures into Compositions:** Instead of debugging software like a coroner performing an autopsy on a dead database, you debug it like a conductor listening to an orchestra, spotting the single out-of-tune instrument, muting it, and letting the ensemble flow forward.
 
 If you scaffold **`chrono-tensor`** as a standalone repo today, building this time-traveling, multi-track flight recorder gives you a concrete, jaw-dropping proof-of-concept for why intelligence and infrastructure must be treated as a live polyphonic score.
@@ -328,6 +335,8 @@ Boundary evaluations reject binary pass/fail gates. Disagreement within the acti
 ### 3. Topological Rigidity & Hodge Decomposition
 
 * **Laman Rigidity (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`):** Decision graphs and dependency shards are evaluated via combinatorial rigidity. *Truth is mathematically defined as a rigid graph*; under-constrained structures collapse instantly under tension.
+
+> **Foundations check 2026-10-21/22:** "truth is mathematically defined as a rigid graph" is refuted — Laman's theorem is a 2D bar-joint result (no 3D analogue is known), and rigidity is geometric determinacy, not a truth predicate: a rigid graph can be rigidly wrong. Builder docs keep it only as an under-specification heuristic (beam-quilt `FOUNDATIONS.md`, verdict table; ARCHITECTURE.md §7).
 * **Hodge Decomposition (`[hodge-music-rs](https://github.com/SuperInstance/hodge-music-rs)`):** Seam friction ($\mathcal{F}$) is decomposed into orthogonal gradient, solenoidal, and harmonic components:
 
 $$\mathcal{F} = \text{grad}(\phi) + \text{curl}(\mathbf{A}) + \mathcal{H}$$
@@ -349,6 +358,8 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^N \sin(\theta_j - \th
 
 
 When coupling density ($K$) exceeds local variance ($\omega_i$), phase angles collapse into a unified frequency because maintaining an out-of-phase state incurs higher computational energy expenditure.
+
+> **Foundations check 2026-10-21/22:** this misstates the model — $\omega_i$ is oscillator $i$'s natural frequency, not a "variance"; synchronisation occurs for $K$ above a critical $K_c$ set by the distribution of natural frequencies $g(\omega)$ (beam-quilt `FOUNDATIONS.md`; Lane B fact-check §3.4).
 2. **Spectral Conservation (`[conservation-composer](https://github.com/SuperInstance/conservation-composer)`):** Every state transition satisfies strict invariant conservation equations ($\partial \mathcal{E}/\partial t + \nabla \cdot \mathbf{J} = 0$). Proposals attempting to inject unconstrained entropy without matching local phase cadences are rejected by adjacent Jev pairs.
 
 ---
@@ -467,6 +478,8 @@ $$\mathcal{F} = \text{grad}(\phi) + \text{curl}(\mathbf{A}) + \mathcal{H}$$
 Gradient noise is smoothed locally, solenoidal deadlocks are broken, and harmonic bottlenecks ($\mathcal{H}$) are isolated for structural refactoring.
 * **Laman Rigidity:** Decision graphs and dependency execution shards are continuously verified for combinatorial rigidity. Un-constrained logic structures collapse instantly under tension, mathematically defining structural validity ("Truth is a rigid graph").
 
+> **Foundations check 2026-10-21/22:** "Truth is a rigid graph" is refuted as a truth predicate — Laman rigidity is a 2D bar-joint result with no known 3D analogue, and a fully constrained graph can still be wrong; determination is not truth (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 ### 3.3 Non-Destructive Time-Scrubbing
 
 Because all state mutations are written as immutable events to the temporal ring buffer, debugging requires no state pollution. Operators or autonomous runtimes can "scrub backward" to any microsecond index, mutate or mute an offending track, re-voice the intent vector, and fork execution instantly.
@@ -483,6 +496,8 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^N \sin(\theta_j - \th
 
 When coupling density ($K$) exceeds local variance, nodes spontaneously collapse into a unified frequency. Staying out of phase incurs a higher thermodynamic and computational cost.
 
+> **Foundations check 2026-10-21/22:** same misstatement as above — $\omega_i$ is a natural frequency, not a variance; the threshold is a critical $K_c$ set by the frequency distribution (beam-quilt `FOUNDATIONS.md`; Lane B fact-check §3.4).
+
 ### 4.2 Spectral Conservation
 
 State transmissions must satisfy invariant conservation ratios ($\partial \mathcal{E}/\partial t + \nabla \cdot \mathbf{J} = 0$). High-entropy proposals that fail to match local phase cadences are rejected at the seam boundary by receiving Jev pairs.
@@ -493,6 +508,8 @@ State transmissions must satisfy invariant conservation ratios ($\partial \mathc
 
 1. **Core Tensor Engine (`core/tensor.py` / `core/lattice.py`):** Implement the lightweight 4D tensor memory layout and Eisenstein $A_2$ temporal quantization grid with zero external dependencies.
 2. **Zero-Copy Transport Bus (`transport/bus.py`):** Build the low-overhead, sub-millisecond binary serialization layer for the 16-track multi-channel event bus.
+
+> **Foundations check 2026-10-21/22:** "sub-millisecond" is refuted as a MIDI-derived figure — one 3-byte message at 31.25 kBaud (10-bit framing) is ~0.96 ms of wire time, ~65 events/s per track (beam-quilt `FOUNDATIONS.md`, verdict table).
 3. **Analysis & Rigidity Modules (`analysis/friction.py`):** Implement Hodge decomposition filters for seam friction and Laman rigidity checks for execution graph validation.
 4. **Flight Recorder & UI (`visualization/piano_roll.py`):** Construct a lightweight terminal/web piano-roll inspector enabling non-destructive time-scrubbing and multi-track telemetry playback.
 
@@ -532,6 +549,8 @@ State transmissions must satisfy invariant conservation ratios ($\partial \mathc
 ### A. The Polyphonic State Bus (`flux-tensor-midi`, `midi-temporal`)
 
 * **Encoding:** Events are packed into lightweight, sub-millisecond binary transmission envelopes containing status, channel, and parameter payloads.
+
+> **Foundations check 2026-10-21/22:** "sub-millisecond" envelopes are refuted as a MIDI-derived figure — a 3-byte message at 31.25 kBaud is ~0.96 ms of wire time; only a bare 1-byte status header is cheaper (beam-quilt `FOUNDATIONS.md`, verdict table).
 * **Time as First-Class Citizen:** Telemetry, agent state transitions, and environmental inputs are time-stamped natively at the transport layer, eliminating downstream log reconstruction overhead.
 * **Continuity & Interpolation:** Continuous parameters (such as resource load, latency, or agent confidence) are streamed as Control Change (CC) vectors across the tracks, smoothed via spline interpolation to prevent step-function jitter (`[spline-midi-smooth](https://github.com/SuperInstance/spline-midi-smooth)`).
 
@@ -548,6 +567,8 @@ $$\mathcal{F} = \text{grad}(\phi) + \text{curl}(\mathbf{A}) + \mathcal{H}$$
 
 Additionally, decision graphs and dependency shards are evaluated using **Laman’s structural rigidity theorem** (`[counterpoint-engine](https://github.com/SuperInstance/counterpoint-engine)`). Under-constrained logic graphs collapse instantly under tension; truth is mathematically defined as a rigid graph.
 
+> **Foundations check 2026-10-21/22:** refuted — Laman's theorem is a 2D bar-joint result (no 3D analogue known), and rigidity is geometric determinacy, not a truth predicate (beam-quilt `FOUNDATIONS.md`, verdict table).
+
 ### C. Kuramoto Phase Entrainment (`plato-timing`, `band-midi-rs`)
 
 * **Clockless Synchronization:** Distributed nodes maintain local oscillator cadences ($\omega_i$).
@@ -557,6 +578,8 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^N \sin(\theta_j - \th
 
 
 * When coupling density ($K$) exceeds local variance, phase angles collapse into a unified frequency because maintaining an un-synchronized state incurs higher computational energy expenditure.
+
+> **Foundations check 2026-10-21/22:** same misstatement — $\omega_i$ is a natural frequency, not a variance; the threshold is a critical $K_c$ set by the frequency distribution (beam-quilt `FOUNDATIONS.md`; Lane B fact-check §3.4).
 
 ---
 
